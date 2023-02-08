@@ -1,3 +1,4 @@
 #!/bin/bash
+touch school.mgc
 0 string SCHOOL School data
-!:mime Holberton
+!:mime School

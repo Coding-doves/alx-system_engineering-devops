@@ -1,2 +1,2 @@
 #!/bin/bash
-find . -type f | -R *.gif
+find .  -name "*.gif" -type f | sort -i | rev

@@ -1,2 +1,2 @@
 #!/bin/bash
-print $input % 2 == 1
+grep -n '^' input_file | paste -sd '1\n' - | cut -d: -f2-

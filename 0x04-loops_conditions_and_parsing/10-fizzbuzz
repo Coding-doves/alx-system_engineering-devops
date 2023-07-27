@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# This script is displaying Fizz Buzz
+for ((i = 1; i <= 100; i++))
+do
+	((n = i % 3))
+	((r = i % 5))
+
+	if [[ $r == 0 ]] && [[ $n == 0 ]]
+	then
+		echo "FizzBuzz"
+	elif [[ $n == 0 ]]
+	then
+		echo "Fizz"
+	elif [[ $r == 0 ]]
+	then
+		echo "Buzz"
+	else
+		echo "$i"
+	fi
+done

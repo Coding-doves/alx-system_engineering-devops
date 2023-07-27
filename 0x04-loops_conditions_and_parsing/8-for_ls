@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # This script is displaying list of a directory
-list="$(ls ./)"
+list=$(ls -p | grep -v /)
 for i in $list;
 do
-	newlist=$(echo "$i" | awk -F'-' '{print $1}')
-	echo "$newlist"
+	if [ -f "$i" ] && [[ "$i" == *-* ]];
+	then
+		rev="${i#*-}"
+		echo "$rev"
+	fi
 done

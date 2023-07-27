@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-# This script is displaying list of a directory
-list = "$(ls ./)"
-for i in "$list";
-do
-	newlist=$(echo "$i" | awk -F'-' '{print $1}')
-	echo "$newlist"
-done

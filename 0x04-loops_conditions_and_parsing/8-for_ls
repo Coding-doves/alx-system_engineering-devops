@@ -3,7 +3,7 @@
 list=( * )
 for i in "${list[@]}";
 do
-	if [ -f "$i" ] && [[ "$i" == *-* ]];
+	if [[ "$i" == *-* ]];
 	then
 		rev="${i#*-}"
 		echo "$rev"

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#this script print the current working directory
+# shellcheck disable=SC2009
+top aux | grep 'bash' | 

@@ -2,4 +2,4 @@
 #this script kills "4-to_infinity_and_beyond" process
 file="7-highlander"
 pids=$(pgrep -f "$file")
-kill "$pids"
+kill -9 "$pids"

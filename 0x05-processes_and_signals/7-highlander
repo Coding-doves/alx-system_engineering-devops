@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#this script print "To infinity and beyond" for infinity
+# this script terminate "To infinity and beyond" for infinity
+
 trap 'echo "I am invincible!!!"' SIGTERM
 
 while ((1));

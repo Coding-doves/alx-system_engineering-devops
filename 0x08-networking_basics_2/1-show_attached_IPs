@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+#This list all ip address
+
+add_ip=$(hostname -I)
+
+add_ip=(${add_ip//" "/})
+
+for i in "${add_ip[@]}";
+do
+printf "$i\n"
+done

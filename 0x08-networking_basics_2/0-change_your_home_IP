@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+#This script configures Ubuntu server
+if [$# -ne 1];
+then
+	exit
+fi
+
+lh_ip="127.0.0.2"
+
+echo "$lh_ip localhost" >> /etc/hosts
+
+echo "$lh_ip facebook.com" >> /etc/hosts
+
+systemd-resolve --flush-caches
+
+exit 0

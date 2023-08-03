@@ -11,6 +11,4 @@ echo "$lh_ip localhost" >> /etc/hosts
 
 echo "$lh_ip facebook.com" >> /etc/hosts
 
-systemd-resolve --flush-caches
-
 exit 0

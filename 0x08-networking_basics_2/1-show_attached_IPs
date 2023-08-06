@@ -7,5 +7,5 @@ add_ip=("${add_ip//" "/}")
 
 for i in "${add_ip[@]}";
 do
-printf "'$i'\n"
+echo "$i"
 done

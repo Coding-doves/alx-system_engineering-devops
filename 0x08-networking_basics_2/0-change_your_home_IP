@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #This script configures Ubuntu server
-if [$# -ne 1];
+if [ $# -ne 1 ];
 then
 	exit
 fi

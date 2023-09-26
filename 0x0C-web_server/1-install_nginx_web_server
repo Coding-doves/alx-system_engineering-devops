@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# install a web server: Install nginx on your web-01
+
+# Update package and install Nginx
+sudo apt-get update
+sudo apt-get install -y nginx
+
+# Start Nginx without systemctl
+sudo service nginx start
+
+# Configure Nginx to listen on port 80 and return "Hello World!" at root
+echo 'server {
+    listen 80;
+    server_name _;
+
+    location / {
+        echo "Hello World!";
+    }
+}' | sudo tee /etc/nginx/sites-available/default
+
+# Reload Nginx configuration
+sudo service nginx reload
+
+# Confirm Nginx is running
+if ! pgrep -x "nginx" >/dev/null; then
+    echo "Nginx failed not running."
+    exit 1
+fi
+
+# If successfull
+echo "Nginx installed, configured, and running on port 80 with 'Hello World!' response."
+

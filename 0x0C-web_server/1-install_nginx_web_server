@@ -11,8 +11,5 @@ sudo chown -R ubuntu /var/www
 # hello world
 echo "Hello World!" > /var/www/index.html
 
-# create symbolic link
-sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-avaliable/default
-
 # restart nginx
 sudo service nginx start

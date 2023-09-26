@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # if is not four
 if [ "$#" -ne 4 ]; then

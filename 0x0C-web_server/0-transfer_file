@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# transfers a file from our client to a server
 
 # if is not four
 if [ "$#" -ne 4 ]; then

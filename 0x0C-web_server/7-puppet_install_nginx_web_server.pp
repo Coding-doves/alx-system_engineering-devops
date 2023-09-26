@@ -3,7 +3,7 @@ package { 'ngnix':
   ensure => 'installed',
 }
 
-file { '/var/www/html/inde.html':
+file { '/var/www/html/index.html':
   content => 'Hello World!',
 }
 

@@ -3,40 +3,33 @@
 sudo service haproxy stop
 sudo apt-get purge -y haproxy
 
-sudo apt update
-sudo apt -y install haproxy
+# sudo apt update
+# sudo apt -y install haproxy
 
-cat <<EOL | sudo tee /etc/haproxy/haproxy.cfg
+sudo apt-get update
+sudo apt-get -y install haproxy
+
+sudo bash -c 'cat <<EOL > /etc/haproxy/haproxy.cfg
 global
-        log /dev/log local0
-        log /dev/log local1 notice
-        user haproxy
-        group haproxy
-        daemon
-        maxconn 256
+    daemon
+    maxconn 256
 
 defaults
-        log global
-        mode http
-        option dontlognull
-        retries 3
-        timeout http-request 10s
-        timeout queue 1m
-        timeout connect 5000ms
-        timeout client 50000ms
-        timeout server 50000ms
-        timeout check 10s
+    mode http
+    timeout connect 5000ms
+    timeout client 50000ms
+    timeout server 50000ms
 
-frontend http_in
+frontend http_front
     bind *:80
     stats uri /haproxy?stats
-    default_backend servers
+    default_backend http_back
 
-backend servers
+backend http_back
     balance roundrobin
     server web-01 263052-web-01:80 check
     server web-02 263052-web-02:80 check
-EOL
+EOL'
 
 sudo service haproxy enable
 

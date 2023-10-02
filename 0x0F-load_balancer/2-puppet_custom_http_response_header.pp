@@ -15,5 +15,5 @@ file { '/etc/nginx/conf.d/custom_header.conf':
 service { 'nginx':
   ensure   => running,
   enable   => true,
-  required => Package['nginx']
+  require  => Package['nginx']
 }

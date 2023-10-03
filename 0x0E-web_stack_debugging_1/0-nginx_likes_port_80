@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# detecting what’s keeping Ubuntu container’s Nginx installation from
+# listening on port 80.
+sudo apt update
+sudo apt-get install -y netcat

@@ -13,7 +13,7 @@ file { '/var/www/html/index.html':
   content => 'Hello World',
 }
 
-file_line { 'redirection-301':
+file_line { 'add custom header':
   ensure => 'present',
   path   => '/etc/nginx/sites-avaliable/default',
   line   => "\tadd_header X-served-By ${hostname};",

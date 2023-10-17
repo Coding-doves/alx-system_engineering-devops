@@ -4,7 +4,7 @@ sed -i 's/user www-data/user nginx/' /etc/nginx/nginx.conf
 # run on port 8080
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 # mode
-chmod 644 /etc/nginx/sites-available/default
+chmod 644 /etc/nginx/nginx.conf
 # kill apache so nginx can run on port 8080
 pkill apache2
 # start nginx

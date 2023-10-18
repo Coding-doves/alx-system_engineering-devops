@@ -3,8 +3,8 @@
 MYSQL_PASSWORD="$1"
 
 # Format for the backup
-# FILE_NAME="$(date +"%d-%m-%Y").tar.gz"
+FILE_NAME="$(date +"%d-%m-%Y").tar.gz"
 
 # Dump MySQL databases and compress
-# mysqldump --user=root --password="$MYSQL_PASSWORD" --all-databases > backup.sql
+mysqldump --user=root --password="$MYSQL_PASSWORD" --all-databases > backup.sql
 tar -czf "$FILE_NAME" "backup.sql"

@@ -14,15 +14,4 @@ username="$3"
 ssh_key="$4"
 
 # Disable strict host key checking
-scp_cmd="scp -o StrictHostKeyChecking=no -i $ssh_key $file_path $username@$server_ip:~/"
-
-# Execute scp command
-$scp_cmd
-
-# if scp command worked
-if [ $? -eq 0 ]; then
-    echo "File transferred successfully to $username@$server_ip:~/"
-else
-    echo "File transfer failed."
-fi
-
+scp -o StrictHostKeyChecking=no -i "$ssh_key" "$file_path" "$username@$server_ip:~/"

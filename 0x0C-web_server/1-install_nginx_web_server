@@ -5,23 +5,13 @@
 sudo apt-get update
 sudo apt-get install -y nginx
 
-#configuration
-sudo mkdir -p /etc/nginx/html
+# giving ownership to user ubuntu
+sudo chown -R ubuntu /var/www
 
 # hello world
-echo "Hello World!" > /etc/nginx/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 
-# creating the server block
-echo "server {
-	listen 80 default_server;
-	listen [::]:80 default_server;
-
-	root /etc/nginx/html;
-	index index.html index.htm index.nginx-debian.html;
-
-	server_name _;
-}
-" > /etc/nginx/sites-available/default
+sudo sed -i 's/listen 80 default_server;/listen 80;/g' /etc/nginx/sites-available/default
 
 # restart nginx
-sudo service nginx restart
+sudo service nginx start

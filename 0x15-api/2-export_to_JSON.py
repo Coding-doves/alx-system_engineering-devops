@@ -17,8 +17,8 @@ if __name__ == "__main__":
     compd_task = {id: [{"task": tas.get("title"),
                         "completed": tas.get("completed"),
                         "username": username}
-                        for tas in all_task if tas.get('userId')
-                        == id]}
+                       for tas in all_task if tas.get('userId')
+                       == id]}
 
     with open("{}.json".format(id), 'w', encoding="utf-8") as file:
         json.dump(compd_task, file)

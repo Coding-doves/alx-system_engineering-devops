@@ -15,10 +15,10 @@ if __name__ == "__main__":
     emp_task = {use.get('id'): [{"username": username("username"),
                                  "task": tas.get("title"),
                                  "completed": tas.get("completed")}
-                                 for tas in tasks if tas.get('userId')
-                                 == use.get('id')]
-                                 for use in username
-                                 }
+                for tas in tasks if tas.get('userId')
+                == use.get('id')]
+                for use in username
+                }
 
     with open("todo_all_employees.json", 'w', encoding="utf-8") as file:
         json.dump(emp_task, file)

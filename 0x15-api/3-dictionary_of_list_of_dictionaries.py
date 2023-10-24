@@ -9,15 +9,16 @@ import sys
 if __name__ == "__main__":
     url = "https://jsonplaceholder.typicode.com"
     user = "{}/users".format(url)
-    username = requests.get(user).json().get('username')
+    users = requests.get(user).json()
     worker_tasks = "{}/todos".format(url)
     tasks = requests.get(worker_tasks).json()
-    all_task = [tas for tas in tasks if tas.get('userId') == id]
-    compd_task = {id: [{"task": tas.get("title"),
-                        "completed": tas.get("completed"),
-                        "username": username}
-                        for tas in all_task if tas.get('userId')
-                        == id]}
+    emp_task = {use.get('id'): [{"username": username("username")
+                                "task": tas.get("title"),
+                                "completed": tas.get("completed"),
+                                for tas in tasks if tas.get('userId')
+                                == use.get('id')]
+                                for use in username
+                                }
 
-    with open("{}.json".format(id), 'w', encoding="utf-8") as file:
-        json.dump(compd_task, file)
+    with open("todo_all_employees.json", 'w', encoding="utf-8") as file:
+        json.dump(emp_task, file)

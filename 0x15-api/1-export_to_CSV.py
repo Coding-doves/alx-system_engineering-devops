@@ -14,11 +14,11 @@ if __name__ == "__main__":
     worker_tasks = "{}/todos".format(url)
     tasks = requests.get(worker_tasks).json()
     emp_task = [[id, u_name, task.get("completed"), task.get("title")]
-               for task in tasks if id == task.get('userId')
-               ]
+                for task in tasks if id == task.get('userId')
+                ]
 
     with open("{}.csv".format(id), 'w', newline="") as file:
-                writer = csv.writer(file, quoting=csv.QUOTE_ALL)
+        writer = csv.writer(file, quoting=csv.QUOTE_ALL)
 
-                for row in emp_task:
-                        writer.writerow(row)
+        for row in emp_task:
+            writer.writerow(row)
